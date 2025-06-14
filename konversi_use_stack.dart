@@ -1,3 +1,5 @@
+import 'dart:io';
+
 class Stack {
   List<String> _items = [];
 
@@ -94,6 +96,34 @@ class KonversiDenganStack {
       print('Palindrom');
     } else {
       print('Bukan palindrom');
+    }
+  }
+}
+
+void main() {
+  var k = KonversiDenganStack();
+
+  while (true) {
+    print('pilih opsi yang diinginkan');
+    print('1. konversi desimal ke biner, oktal dan heksa');
+    print('2. cek kata/kalimat palindrom');
+    print('3. keluar');
+    stdout.write('Masukkan Pilihan (1/2/3): ');
+    String dipilih = stdin.readLineSync()!;
+
+    if (dipilih == '1') {
+      print('masukkan nilai desimal: ');
+      int desimal = int.parse(stdin.readLineSync()!);
+      k.konversiDesimal(desimal);
+    } else if (dipilih == '2') {
+      print('Masukkan kata/Kalimat: ');
+      String kalimat = stdin.readLineSync()!;
+      k.cekPalindrom(kalimat);
+    } else if (dipilih == '3') {
+      print('Terimakasih');
+      break;
+    } else {
+      print('Pilihan tidak tersedia, mohon pilih 1/2/3');
     }
   }
 }
